@@ -1,0 +1,105 @@
+/* Reset CSS */
+* {
+    padding:0; margin:0; background-color:transparent;
+    border:none; outline:none; box-sizing:border-box;
+}
+:root {
+    --color-pink:#ea008c;
+    --color-output-bg:#f7f1e2;
+    --color-input-bg:#f9f9f9;
+    --color-functional-key:#f0f0f0;
+    --color-number-key:#fff;
+    --color-number:#646464;
+    --color-black:#323232;
+}
+body {
+    background-color:var(--color-black); color:var(--color-black);
+    font-family:"Roboto", sans-serif; font-weight:400; font-size:20px;
+    width:100%; height:100vh;
+    display:flex; justify-content:center; align-items:center;
+}
+.hidden {display:none;}
+
+/* Container */
+#momo {
+    width:calc(100vw - 20px); max-width:480px; height:calc(100vh - 20px);
+    background-color:var(--color-output-bg);
+    margin:0 auto; border-radius:14px; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:space-between;
+}
+#momo:before {content:"";}
+
+/* Output */
+.output {
+    height:50%;
+    display:flex; justify-content:center; align-items:center;
+}
+.output input {
+    border-bottom:2px solid var(--color-pink);
+    padding:5px; display:inline-block; text-align:center;
+    min-width:100px; max-width:100%;
+    font-size:25px; color:var(--color-pink);
+}
+
+/* Input */
+.input {
+    width:100%;
+    background-color:var(--color-input-bg);
+    position:relative; padding-top:60%;
+}
+.input-inner {
+    height:100%; width:100%; padding:7px;
+    position:absolute; top:0; left:0;
+}
+
+
+/* Keyboard */
+ul.keyboard {
+    display:grid;
+    grid-template-areas:
+        "ac division multiplication del"
+        "seven eight nine subtraction"
+        "four five six addition"
+        "one two three equal"
+        "thousand thousand zero equal";
+    grid-gap:7px;
+    margin:0; list-style:none;
+    height:100%; width:100%;
+}
+li.key {padding:0;}
+li.key button {
+    background-color:var(--color-functional-key);
+    height:100%; width:100%; border-radius:10px;
+    font-size:1.2em; line-height:1; cursor:pointer;
+    transition:all .3s ease;
+}
+li.key button:hover {
+    color:rgba(0, 0, 0, .7) !important;
+    box-shadow:0 0 10px 0 rgba(0, 0, 0, .1);
+}
+
+li.key.function button {color:var(--color-black);}
+li.key.function button,
+li.key.operator button {font-weight:700;}
+li.key.number button {background-color:#fff; color:var(--color-number);}
+li.key.equal button {background-color:var(--color-pink); color:#fff;}
+
+/* Keyboard > grid position */
+.key.ac {grid-area:ac;}
+.key.division {grid-area:division;}
+.key.multiplication {grid-area:multiplication;}
+.key.del {grid-area:del;}
+.key.subtraction {grid-area:subtraction;}
+.key.addition {grid-area:addition;}
+.key.equal {grid-area:equal;}
+.key.thousand {grid-area:thousand;}
+.key.zero {grid-area:zero;}
+.key.one {grid-area:one;}
+.key.two {grid-area:two;}
+.key.three {grid-area:three;}
+.key.four {grid-area:four;}
+.key.five {grid-area:five;}
+.key.six {grid-area:six;}
+.key.seven {grid-area:seven;}
+.key.eight {grid-area:eight;}
+.key.nine {grid-area:nine;}

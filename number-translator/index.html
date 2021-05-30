@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Translator | Bui Minh Phuc</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        select#modeSelect{width:auto;height:auto;margin:0 auto;padding:0 6px;background:#00796B;color:white;font-size:30px;}
+        .jumbotron h1 {
+            text-align: center
+        }
+        input.form-control{background:#F8D3E1;}
+        input#len {
+            border: 0;
+            background: rgba(0,0,0,0.00)
+        }
+        p {
+            text-align: center
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="main jumbotron">
+    <h1>Number Translator</h1>
+    <div class="form-group">
+        <select class="form-control" id="modeSelect">
+            <option id="fixEnNum">English Number</option>
+            <option id="fixJpNum">Japanese Number</option>
+        </select>
+    </div>
+</div>
+<div class="main container">
+    <form name="read">
+        <div class="form-group">
+            <label for="num">Enter number:
+                <input id="len" type="text" name="numlen" disabled/>
+            </label>
+            <input class="form-control" type="number" id='num' name="num" autocomplete="off" autofocus  placeholder="We accept interger number from -∞ to +∞"
+                   onClick="numToRoma();romaToHira();numToEn();enToVi();Kount();fixNum()"
+                   onKeyUp="numToRoma();romaToHira();numToEn();enToVi();Kount();fixNum()"/>
+        </div>
+        <div class="form-group">
+            <label for="num">in Vietnamese:
+                <input id="len" type="text" name="vilen" disabled/>
+            </label>
+            <input class="form-control" type="text" name="vi" id="vi" placeholder="Read up to 16 numbers."/>
+        </div>
+        <div class="form-group">
+            <label for="num">in English:
+                <input id="len" type="text" name="enlen" disabled/>
+            </label>
+            <input class="form-control" type="text" name="en" id="en" placeholder="Read up to 16 numbers."/>
+        </div>
+        <div class="form-group">
+            <label for="num">in Hiragana:
+                <input id="len" type="text" name="hiralen" disabled/>
+            </label>
+            <input class="form-control" type="text" name="hira" id="hira" placeholder="Read up to 16 numbers."/>
+        </div>
+        <div class="form-group">
+            <label for="num">in Romaji:
+                <input id="len" type="text" name="romalen" disabled/>
+            </label>
+            <input class="form-control" type="text" name="roma" id="roma" placeholder="Read up to 16 numbers."/>
+        </div>
+        <!-- copy jp-->
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left:0;padding-right:0;">
+            <div class="btn-group btn-group-justified">
+                <!-- copy vi-->
+                <div class="btn-group">
+                    <button class="btn btn-info" type="button" id="vi_copy" data-clipboard-target="#vi">Copy Vietnamese</button></div>
+                <script>(function(){new Clipboard('#vi_copy');})();</script>
+                <!-- copy en-->
+                <div class="btn-group">
+                    <button class="btn btn-info" type="button" id="en_copy" data-clipboard-target="#en">Copy English</button></div>
+                <script>(function(){new Clipboard('#en_copy');})();</script>
+                <!-- copy hira-->
+                <div class="btn-group">
+                    <button class="btn btn-info" type="button" id="hira_copy" data-clipboard-target="#hira">Copy Hiragana</button></div>
+                <script>(function(){new Clipboard('#hira_copy');})();</script>
+                <!-- copy roma-->
+                <div class="btn-group">
+                    <button class="btn btn-info" type="button" id="roma_copy" data-clipboard-target="#roma">Copy Romaji</button></div>
+                <script>(function(){new Clipboard('#roma_copy');})();</script>
+                <!-- clear all-->
+                <div class="btn-group">
+                    <button class="btn btn-danger" type="button" onClick="xoa()">Clear All</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

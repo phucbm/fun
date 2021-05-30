@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tên bạn trong tiếng Nhật là gì? | BMP</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        i.fa-circle, #aler{ color:#F44336;}
+        input#vi{
+            text-align:center;
+            border:0;
+        }
+        h1,#aler {
+            margin:25px;
+            text-align: center;
+        }
+        body{background:#FAFAFA;padding-top:7%}
+    </style>
+</head>
+<body>
+
+<div class="main container">
+    <form name="ten" autocomplete="off">
+        <div class="row">
+
+            <!-- jp -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 id="kata" style="font-size:1200%"><i class="fa fa-circle" aria-hidden="true"></i></h1>
+
+                <h1 id="roma"><span style="color:#FAFAFA">O</span></h1>
+            </div>
+
+            <!-- viet -->
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                <div class="form-group">
+                    <input autofocus class="form-control" onKeyUp="namae()" id="vi" name="vi">
+                    <h5 id="aler"></h5>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

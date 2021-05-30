@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mã hóa Vigenere</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<body onLoad="settext()">
+
+<div class="main jumbotron">
+    <h1 style="text-align:center">Mã hóa Vigenere</h1>
+    <p style="text-align:center">Ngôn ngữ Javascript. Hỗ trợ kí tự tiếng Anh thường.</p>
+</div>
+<div class="main container">
+    <form name="caesar" method="post" action="">
+
+        <!-- Key -->
+        <div class="form-group">
+            <label class="control-label" for="email">Từ khóa:</label>
+            <input class="form-control" type="text" name="key" size="11" value="PHUCSNEF">
+        </div>
+        <!-- Text length -->
+        <div class="form-group">
+            <label class="control-label" for="email">Độ dài chuỗi:</label>
+            <input class="form-control" type="text" name="shift" size="3" value="" disabled>
+        </div>
+
+        <!-- Normal message -->
+        <div class="form-group">
+            <label class="control-label" for="email">Chuỗi bình thường:</label>
+            <textarea class="form-control" name="normal" rows="4" cols="50" autofocus>Bui Minh Phuc</textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="button" name="Button" value="Encrypt" onClick="encrypt()">Mã hóa</button>
+
+        <!-- Encrypted message -->
+        <div class="form-group">
+            <label class="control-label" for="email">Chuỗi đã mã hóa:</label>
+            <textarea class="form-control" name="crypt" rows="4" cols="50"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="button" name="Submit2" value="Decrypt" onClick="decrypt()">Giải mã</button>
+
+        <!-- check box -->
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="checkbox" value="yes">
+                    Nhóm 5 kí tự</label>
+            </div>
+        </div>
+        <!-- clear message -->
+        <button class="btn btn-warning btn-block" type="button" name="Button2" value="Clear messages" onClick="clear_it()">Xóa chuỗi</button>
+    </form>
+</div>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

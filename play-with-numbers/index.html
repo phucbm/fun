@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chơi với chuỗi số | BMP</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div class="main jumbotron">
+    <h1 style="text-align:center">Sắp xếp. Tổng. Tích.</h1>
+    <p style="text-align:center">Ngôn ngữ sử dụng: JavaScript. Hỗ trợ tập số thực.</p>
+</div>
+
+<div class="main container">
+    <form method="post" name="chuoi" action="">
+        <!-- nhap chuoi -->
+        <div class="form-group">
+            <label for="num">Nhập chuỗi số bất kì:</label>
+            <input class="form-control" type="text" name="num" value="15 -11 -1996" placeholder="Số thập phân, số âm số dương chấp hết nhé!" required/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="button" name="submit" onClick="play_now()">Chơi</button>
+        </div>
+
+        <!-- result message -->
+        <div class="form-group">
+            <label class="control-label" for="dai">Chuỗi có:</label>
+            <input class="form-control" name="dai" value="" disabled>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="tong">Tổng các số trong chuỗi là:</label>
+            <input class="form-control" name="tong" value="" disabled>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="tich">Tích các số trong chuỗi là:</label>
+            <input class="form-control" name="tich" value="" disabled>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="tang">Sắp xếp theo thứ tự tăng dần:</label>
+            <input class="form-control" name="tang" value="" disabled>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="giam">Sắp xếp theo thứ tự giảm dần:</label>
+            <input class="form-control" name="giam" value="" disabled>
+        </div>
+
+        <!-- clear message -->
+        <button class="btn btn-warning btn-block" type="button" name="xoa" onClick="xoa_chuoi()">Xóa chuỗi</button>
+    </form>
+</div>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

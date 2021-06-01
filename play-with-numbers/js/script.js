@@ -1,9 +1,3 @@
-/*
-        YOU'RE GONNA NEED BOOTSTRAP, FONTAWESOME TO GET THE BEST DISPLAY OF THIS PAGE
-
-        Author: Bui Minh Phuc
-
-        */
 /*      ******       **        **   ******
         **    **     ****    ****   **    **
         **    **     ** **  ** **   **    **

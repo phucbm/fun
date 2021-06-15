@@ -1,16 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Title</title>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <title>App title | Minh-Phuc Bui</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <style>
+        body {display:flex; flex-direction:column; justify-content:space-between; min-height:100vh;}
+        .box {padding:10px;}
+        .box:not(:last-child) {margin-bottom:5px;}
+        .footer {padding:3rem 1.5rem;}
+    </style>
 </head>
 <body>
 
+<!-- Hero -->
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-desktop">
+                <div class="column is-three-fifths is-offset-one-fifth">
+
+                    <h1 class="title">App title</h1>
+                    <p class="subtitle">15 June, 2021</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main -->
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-three-fifths is-offset-one-fifth">
+
+                <div class="field">
+                    <label class="label">Label</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="placeholder" id="input">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="order" value="asc" checked>
+                            Ascending
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="order" value="desc">
+                            Descending
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-three-fifths is-offset-one-fifth">
+                <div class="content">
+                    <p>
+                        <strong>App title</strong> by <a href="https://github.com/phucbm" target="_blank">Minh-Phuc
+                        Bui</a>.
+                    </p>
+                    <p>The source code is licensed
+                        <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>. The website is
+                        hosted on <a
+                                href="https://phucbm.github.io/fun/" target="_blank">Github</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 <script src="js/jquery-3.6.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
 
 </body>

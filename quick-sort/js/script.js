@@ -134,13 +134,12 @@ function string_to_number_array(string) {
 /**
  * On input changing
  */
-$('#input').on('change keyup', function () {
+$('input').on('change keyup click', function () {
     $('#printer').html('');
 
-    let $this = $(this),
-        array = string_to_number_array($this.val()),
-        sortedString = array_to_string(quick_sort_dev(array));
+    let array = string_to_number_array($('#input').val()),
+        asc = $('input[name="order"]:checked').val() === "asc";
 
     // update sorted numbers
-    $('#converted-array').val(sortedString);
+    $('#converted-array').val(array_to_string(quick_sort_dev(array, asc)));
 });

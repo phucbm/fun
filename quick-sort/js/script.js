@@ -46,7 +46,7 @@ function quick_sort(array, asc = true) {
  */
 function quick_sort_dev(array, asc = true, side = 'full', push = 1) {
     if (array.length < 2) {
-        console.log(`Stop sorting ${side} array`);
+        print(`Stop sorting ${side} array ${array_to_string(array)}`);
         return array;
     }
 
@@ -55,7 +55,7 @@ function quick_sort_dev(array, asc = true, side = 'full', push = 1) {
         left = [], right = [],
         currentItem;
 
-    console.log(`   Get pivot = ${pivot} in ${side} array `, array);
+    print(`From ${side} array ${array_to_string(array)}, set pivot = ${color.pivot(pivot)}`);
 
     // loop [0;pivotIndex)
     for (let i = 0; i < pivotIndex; i++) {
@@ -64,21 +64,21 @@ function quick_sort_dev(array, asc = true, side = 'full', push = 1) {
         if (currentItem < pivot) {
             if (asc) {
                 left.push(currentItem);
-                console.log(`#${push} Push `, currentItem, ` to left `, left, ' < ', pivot);
+                print(`#${push} Push ${color.num(currentItem)} to the left side of pivot => ${color.num(array_to_string(left))} + ${color.pivot(pivot)}`);
                 push++;
             } else {
                 right.push(currentItem);
-                console.log(`#${push} Push `, currentItem, ` to right `, right, ' < ', pivot);
+                print(`#${push} Push ${color.num(currentItem)} to the right side of pivot => ${color.pivot(pivot)} + ${color.num(array_to_string(right))}`);
                 push++;
             }
         } else {
             if (asc) {
                 right.push(currentItem);
-                console.log(`#${push} Push `, currentItem, ` to right `, right, ' > ', pivot);
+                print(`#${push} Push ${color.num(currentItem)} to the right side of pivot => ${color.pivot(pivot)} + ${color.num(array_to_string(right))}`);
                 push++;
             } else {
                 left.push(currentItem);
-                console.log(`#${push} Push `, currentItem, ` to left `, left, ' > ', pivot);
+                print(`#${push} Push ${color.num(currentItem)} to the left side of pivot => ${color.num(array_to_string(left))} + ${color.pivot(pivot)}`);
                 push++;
             }
         }
@@ -88,4 +88,59 @@ function quick_sort_dev(array, asc = true, side = 'full', push = 1) {
 }
 
 
-console.log(quick_sort_dev([100, 2, 5, 4, 7, 5, 6, 8, 0, 12, 34, 15]));
+/**
+ * Print and decor functions
+ */
+let color = {
+    num: (num) => `<span class="tag is-info">${num}</span>`,
+    pivot: (num) => `<span class="tag is-success">${num}</span>`,
+}, print = function (string) {
+    $('#printer').append(`<div class="box">${string}</div>`);
+};
+
+
+/**
+ * Convert array of numbers to a string for demo purpose
+ * @param array
+ * @returns {string}
+ */
+function array_to_string(array) {
+    let string = '[';
+    for (let i in array) {
+        string += array[i] + ((i < array.length - 1) ? ', ' : '');
+    }
+    return string + ']';
+}
+
+
+/**
+ * Convert a string to an array of numbers
+ * @param string
+ * @returns {*[]}
+ */
+function string_to_number_array(string) {
+    let result = [],
+        array = string.split(' '), number;
+    for (let i in array) {
+        number = parseFloat(array[i]);
+        if (!isNaN(number)) {
+            result.push(number);
+        }
+    }
+    return result;
+}
+
+
+/**
+ * On input changing
+ */
+$('#input').on('change keyup', function () {
+    $('#printer').html('');
+
+    let $this = $(this),
+        array = string_to_number_array($this.val()),
+        sortedString = array_to_string(quick_sort_dev(array));
+
+    // update sorted numbers
+    $('#converted-array').val(sortedString);
+});

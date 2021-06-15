@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Quick Sort</title>
-
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <style>
+        .box {padding:10px;}
+        .box:not(:last-child) {margin-bottom:5px;}
+    </style>
 </head>
 <body>
 
-<h1>Open console log for tracking info.</h1>
+<!-- Hero -->
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-desktop">
+                <div class="column is-three-fifths is-offset-one-fifth">
+
+                    <h1 class="title">
+                        Quick sort
+                    </h1>
+                    <p class="subtitle">
+                        Medium subtitle
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main -->
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-three-fifths is-offset-one-fifth">
+
+                <div class="field">
+                    <label class="label">Enter numbers separated by white space</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="1 2 -1 5 12 0" id="input">
+                    </div>
+                </div>
+
+                <div class="block" id="printer"></div>
+
+                <div class="field">
+                    <label class="label">Sorted array</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" readonly id="converted-array">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/script.js"></script>

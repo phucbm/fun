@@ -4,6 +4,7 @@ These are some small apps that I made in my spare time. Some were from a long ti
 
 ### 2021
 
+- [All About Your Birthday](birthday) - 2021/06/19
 - [Quick Sort](quick-sort) - 2021/06/15
 - [MOMO CALCULATOR](momo-calculator) - 2021/05/30
 

@@ -1,10 +1,13 @@
 let DATE = {
     /** log **/
-    log(string, warn = false) {
+    log(string, warn = false, print = false) {
         if (warn) {
             console.warn(string);
         } else {
             console.log(string);
+        }
+        if (print) {
+            $('#printer').append(`<div class="box">${string}</div>`);
         }
     },
 
@@ -32,10 +35,10 @@ let DATE = {
     },
 
     /** get date object from date string **/
-    getDate(dateString) {
+    getDate(dateString, print = false) {
         // length must equal to 10 to fit with format "dd/mm/yyyy"
         if (dateString.length !== 10) {
-            this.log(`Invalid input [${dateString}]. Length of input must be 10.`, true);
+            this.log(`Invalid input [${dateString}]. Length of input must be 10.`, true, print);
             return false;
         }
 
@@ -48,13 +51,13 @@ let DATE = {
 
         // year in range [1;9999]
         if (dateObject.y < 0 || dateObject.y > 4444) {
-            this.log(`Invalid year [${dateObject.y}]. Only accept year from 0 to 4444.`, true);
+            this.log(`Invalid year [${dateObject.y}]. Only accept year from 0 to 4444.`, true, print);
             return false;
         }
 
         // month in range [1;12]
         if (dateObject.m < 1 || dateObject.m > 12) {
-            this.log(`Invalid month [${dateObject.m}]. Only accept month from 1 to 12.`, true);
+            this.log(`Invalid month [${dateObject.m}]. Only accept month from 1 to 12.`, true, print);
             return false;
         }
 
@@ -62,9 +65,9 @@ let DATE = {
         const month = this.getMonth(dateObject.m, dateObject.y);
         if (dateObject.d < 1 || dateObject.d > month.days) {
             if (dateObject.d > month.days && month.days === 29) {
-                this.log(`Invalid day [${dateObject.d}]. [${dateObject.y}] is a leap year, so there are only 29 days in ${month.name}.`, true);
+                this.log(`Invalid day [${dateObject.d}]. [${dateObject.y}] is a leap year, so there are only 29 days in ${month.name}.`, true, print);
             } else {
-                this.log(`Invalid day [${dateObject.d}]. Day in ${month.name} of [${dateObject.y}] must from 1 to ${month.days}.`, true);
+                this.log(`Invalid day [${dateObject.d}]. Day in ${month.name} of [${dateObject.y}] must from 1 to ${month.days}.`, true, print);
             }
             return false;
         }
@@ -295,7 +298,11 @@ let DATE = {
                 return zodiac[i];
             }
         }
-        return false;
+        return {
+            'name': 'Zodiac not found!',
+            'from': {d: 0, m: 0},
+            'to': {d: 0, m: 0},
+        };
     }
 };
 
@@ -354,6 +361,8 @@ $('#date').on('keyup click', function () {
         $print.append(`<div class="box">Yesterday was ${DATE.formatDate(DATE.calculate(today, 'yesterday'))}</div>`);
         $print.append(`<div class="box">Today is ${DATE.formatDate(today)}</div>`);
         $print.append(`<div class="box">Tomorrow is ${DATE.formatDate(DATE.calculate(today, '++'))}</div>`);
+    } else {
+        DATE.getDate($(this).val(), true);
     }
 
 });

@@ -350,7 +350,7 @@ $('#date').on('keyup click', function () {
 
         // till birthday
         if (tillBirthday < 0) {
-            $print.append(`<div class="box">Your birthday was ${tillBirthday} days ago.</div>`);
+            $print.append(`<div class="box">Your birthday was ${tillBirthday * -1} days ago.</div>`);
         } else if (tillBirthday > 0) {
             $print.append(`<div class="box">Your next birthday will come in ${tillBirthday} days.</div>`);
         } else {

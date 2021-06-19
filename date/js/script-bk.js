@@ -32,10 +32,10 @@ let DATE = {
     },
 
     /** get date object from date string **/
-    getDate(dateString) {
+    getDate(dateString, warn) {
         // length must equal to 10 to fit with format "dd/mm/yyyy"
         if (dateString.length !== 10) {
-            this.log(`Invalid input [${dateString}]. Length of input must be 10.`, true);
+            if (warn) return `Invalid input [${dateString}]. Length of input must be 10.`;
             return false;
         }
 
@@ -48,13 +48,13 @@ let DATE = {
 
         // year in range [1;9999]
         if (dateObject.y < 0 || dateObject.y > 4444) {
-            this.log(`Invalid year [${dateObject.y}]. Only accept year from 0 to 4444.`, true);
+            if (warn) return `Invalid year [${dateObject.y}]. Only accept year from 0 to 4444.`;
             return false;
         }
 
         // month in range [1;12]
         if (dateObject.m < 1 || dateObject.m > 12) {
-            this.log(`Invalid month [${dateObject.m}]. Only accept month from 1 to 12.`, true);
+            if (warn) return `Invalid month [${dateObject.m}]. Only accept month from 1 to 12.`;
             return false;
         }
 
@@ -62,9 +62,9 @@ let DATE = {
         const month = this.getMonth(dateObject.m, dateObject.y);
         if (dateObject.d < 1 || dateObject.d > month.days) {
             if (dateObject.d > month.days && month.days === 29) {
-                this.log(`Invalid day [${dateObject.d}]. [${dateObject.y}] is a leap year, so there are only 29 days in ${month.name}.`, true);
+                if (warn) return `Invalid day [${dateObject.d}]. [${dateObject.y}] is a leap year, so there are only 29 days in ${month.name}.`;
             } else {
-                this.log(`Invalid day [${dateObject.d}]. Day in ${month.name} of [${dateObject.y}] must from 1 to ${month.days}.`, true);
+                if (warn) return `Invalid day [${dateObject.d}]. Day in ${month.name} of [${dateObject.y}] must from 1 to ${month.days}.`;
             }
             return false;
         }
@@ -354,6 +354,8 @@ $('#date').on('keyup click', function () {
         $print.append(`<div class="box">Yesterday was ${DATE.formatDate(DATE.calculate(today, 'yesterday'))}</div>`);
         $print.append(`<div class="box">Today is ${DATE.formatDate(today)}</div>`);
         $print.append(`<div class="box">Tomorrow is ${DATE.formatDate(DATE.calculate(today, '++'))}</div>`);
+    } else {
+        $print.append(`<div class="box">${$(this).val()} is not a valid format.</div>`);
     }
 
 });
